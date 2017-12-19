@@ -1,0 +1,54 @@
+Name: ExampleModule
+DisplayName: Example Module
+Guid: ""
+Description: "Something"
+Entities:
+- Name: Task
+  Guid: ""
+  IsVisible: true
+  Description: List of tasks
+  PropertyGroups:
+  - Name: Keys
+    IsVisible: false
+    Properties:
+    - Name: TaskId
+      DataType: Guid
+      IsPrimaryKey: true
+  - Name: Details
+    IsVisible: true
+    Properties:
+    - Name: Name
+      DataType: String
+      MaxLength: 50
+    - Name: DueDate
+      DataType: DateTime
+      DataTypeFormat: MediumDate
+    - Name: Status
+      DataType: Enum
+      DataTypeFormat: String
+      Enums:
+      - Name: NotStarted
+        Id: "1"
+      - Name: Started
+        Id: "2"
+      - Name: Completed
+        Id: "3"
+      - Name: "Cancelled"
+        Id: "4"
+    - Name: User
+      DataType: Parent
+      IsRequired: false
+      ParentName: IdentityModule.User
+- Name: TaskType
+  IsVisible: true
+  Description: List of task types
+  PropertyGroups:
+  - Name: Details
+    IsVisible: true
+    Properties:
+    - Name: Name
+      DataType: String
+      MaxLength: 20
+    - Name: Description
+      DataType: String
+      MaxLength: 500

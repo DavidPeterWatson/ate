@@ -1,0 +1,33 @@
+Name: IdentityModule
+DisplayName: Identity Module
+Guid: ""
+Description: "Identity Management"
+Entities:
+- Name: User
+  Guid: ""
+  IsVisible: true
+  Description: List of Users
+  PropertyGroups:
+  - Name: Keys
+    IsVisible: false
+    Properties:
+    - Name: UserId
+      DataType: Guid
+      IsPrimaryKey: true
+  - Name: Details
+    IsVisible: true
+    Properties:
+    - Name: UserName
+      DataType: String
+      MaxLength: 50
+    - Name: Password
+      DataType: String
+      DataTypeFormat: Password
+    - Name: Status
+      DataType: Enum
+      DataTypeFormat: String
+      Enums:
+      - Name: Active
+        Id: "1"
+      - Name: Not Active
+        Id: "2"

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup Label="Package References">
+    <PackageReference Include="System.Runtime" Version="4.3.0"/>
+    <PackageReference Include="System.Runtime.Loader" Version="4.3.0"/>
+  </ItemGroup>
+    <ItemGroup Label="Project References">
+    <ProjectReference Include="..\Extensions\Extensions.csproj" />
+  </ItemGroup>
+</Project>

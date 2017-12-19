@@ -1,0 +1,6 @@
+Name: ASP.NET POC
+Description: Example Project to demonstrate templating to Plant UML
+Template: ..\..\templates\ASP-NET-POC
+Destination: output
+App:
+  FileName: TaskApp.yaml

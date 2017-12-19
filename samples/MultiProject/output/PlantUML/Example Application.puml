@@ -1,0 +1,57 @@
+@startuml ExampleApp
+' uncomment the line below if you're using computer with a retina display
+' skinparam dpi 300
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+' we use bold for primary key
+' green color for unique
+' and underscore for not_null
+!define primary_key(x) <b>x</b>
+!define unique(x) <color:green>x</color>
+!define not_null(x) <u>x</u>
+' other tags available:
+' <i></i>
+' <back:COLOR></color>, where color is a color name or html color code
+' (#FFAACC)
+' see: http://plantuml.com/classes.html#More
+hide methods
+hide stereotypes
+
+' entities
+
+Table(User, "User\n(List of Users)") {
+    primary_key(UserId>) INTEGER
+    not_null(UserName) VARCHAR[50]
+    not_null(Password) VARCHAR[0]
+    Status Enum
+    
+}
+
+Table(Task, "Task\n(List of tasks)") {
+    primary_key(TaskId>) INTEGER
+    UserUserId Guid
+    not_null(Name) VARCHAR[50]
+    DueDate DATETIME
+    Status Enum
+    User Parent
+    
+}
+
+Table(TaskType, "TaskType\n(List of task types)") {
+    not_null(Name) VARCHAR[20]
+    not_null(Description) VARCHAR[500]
+    Id Integer
+    
+}
+
+
+' ' relationships
+' ' one-to-one relationship
+' user -- user_profile : "A user only \nhas one profile"
+' ' one to may relationship
+' user --> session : "A user may have\n many sessions"
+' ' many to many relationship
+' ' Add mark if you like
+' user "1" --> "*" user_group : "A user may be \nin many groups"
+' group
+'     "1" --> "0..N" user_group : "A group may \ncontain many users"
+@enduml

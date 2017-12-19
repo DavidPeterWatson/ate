@@ -1,0 +1,6 @@
+Name: ExampleProject
+Description: Example Project to demonstrate templating
+Template: ..\..\templates\CSharpPocoMulti
+Destination: output
+App:
+  FileName: TaskApp.yaml

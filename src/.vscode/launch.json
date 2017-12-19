@@ -1,0 +1,63 @@
+{
+    // Use IntelliSense to find out which attributes exist for C# debugging
+    // Use hover for the description of the existing attributes
+    // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch (yaml to xml)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Cli/bin/Debug/netcoreapp2.0/Cli.dll",
+            "args": [
+                "-i",
+                "yaml",
+                "..\\..\\samples\\Csharp Poco\\ExampleApp.yaml",
+                "-e",
+                "xml",
+                "..\\..\\samples\\Csharp Poco\\xmloutput"
+            ],
+            "cwd": "${workspaceFolder}/Cli",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": ".NET Core Launch (CSharp Poco template)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Cli/bin/Debug/netcoreapp2.0/Cli.dll",
+            "args": [
+                "-t",
+                "..\\..\\samples\\MultiProject\\ExampleProject.yaml"
+            ],
+            "cwd": "${workspaceFolder}/Cli",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": ".NET Core Launch (Plant UML template)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Cli/bin/Debug/netcoreapp2.0/Cli.dll",
+            "args": [
+                "-t",
+                "..\\..\\samples\\MultiProject\\PlantUmlProject.yaml"
+            ],
+            "cwd": "${workspaceFolder}/Cli",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ]
+}

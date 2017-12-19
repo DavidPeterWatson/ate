@@ -1,0 +1,40 @@
+@startuml ʕApp.Nameʔ
+' uncomment the line below if you're using computer with a retina display
+' skinparam dpi 300
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+' we use bold for primary key
+' green color for unique
+' and underscore for not_null
+!define primary_key(x) <b>x</b>
+!define unique(x) <color:green>x</color>
+!define not_null(x) <u>x</u>
+' other tags available:
+' <i></i>
+' <back:COLOR></color>, where color is a color name or html color code
+' (#FFAACC)
+' see: http://plantuml.com/classes.html#More
+hide methods
+hide stereotypes
+
+' entities
+ʕfor each Entity in App.Entitiesʔ
+Table(ʕEntity_Nameʔ, "ʕEntity.Nameʔ\n(ʕEntity.Descriptionʔ)") {
+    ʕfor each Property in Entity.Propertiesʔʕif Property.IsPrimaryKeyʔprimary_key(ʕProperty.Nameʔ>) INTEGER
+    ʕelse if Property.DataType == DataType.Stringʔnot_null(ʕProperty.Nameʔ) VARCHAR[ʕProperty.MaxLength.ToString()ʔ]
+    ʕelse if Property.DataType == DataType.DateTimeʔʕProperty.Nameʔ DATETIME
+    ʕelseʔʕProperty.Nameʔ ʕProperty.DataType.ToString()ʔ
+    ʕend ifʔʕnext Propertyʔ
+}
+ʕnext Entityʔ
+
+' ' relationships
+' ' one-to-one relationship
+' user -- user_profile : "A user only \nhas one profile"
+' ' one to may relationship
+' user --> session : "A user may have\n many sessions"
+' ' many to many relationship
+' ' Add mark if you like
+' user "1" --> "*" user_group : "A user may be \nin many groups"
+' group
+'     "1" --> "0..N" user_group : "A group may \ncontain many users"
+@enduml

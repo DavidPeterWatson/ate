@@ -1,0 +1,1 @@
+dotnet publish -o "../of.Publish" -c release -r "osx.10.12-x64"

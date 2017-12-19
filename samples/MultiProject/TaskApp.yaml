@@ -1,0 +1,8 @@
+Name: ExampleApp
+Guid: ""
+DisplayName: Example Application
+Version: 0.0.1
+Description: Task Application to demonstrate application templating
+Modules:
+- FileName: IdentityModule.yaml
+- FileName: TaskModule.yaml
