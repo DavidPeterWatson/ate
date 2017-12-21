@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/Cli/bin/Debug/netcoreapp2.0/Cli.dll",
+            "program": "${workspaceFolder}/Cli/bin/Debug/netcoreapp2.0/ate.dll",
             "args": [
                 "-i",
                 "yaml",
@@ -28,9 +28,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/Cli/bin/Debug/netcoreapp2.0/Cli.dll",
+            "program": "${workspaceFolder}/Cli/bin/Debug/netcoreapp2.0/ate.dll",
             "args": [
-                "-t",
+                "-p",
                 "..\\..\\samples\\MultiProject\\ExampleProject.yaml"
             ],
             "cwd": "${workspaceFolder}/Cli",
@@ -43,10 +43,30 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/Cli/bin/Debug/netcoreapp2.0/Cli.dll",
+            "program": "${workspaceFolder}/Cli/bin/Debug/netcoreapp2.0/ate.dll",
             "args": [
-                "-t",
+                "-p",
                 "..\\..\\samples\\MultiProject\\PlantUmlProject.yaml"
+            ],
+            "cwd": "${workspaceFolder}/Cli",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": ".NET Core Launch (SQL Import)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Cli/bin/Debug/netcoreapp2.0/ate.dll",
+            "args": [
+                "-i",
+                "sql",
+                "sqlserver",
+                "Data Source=.\\SQLEXPRESS;Integrated Security=true;Initial Catalog=MDS",
+                "-e",
+                "yaml",
+                "..\\..\\samples\\SQL\\MDS.yaml"
             ],
             "cwd": "${workspaceFolder}/Cli",
             "console": "internalConsole",

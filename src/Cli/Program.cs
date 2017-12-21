@@ -14,6 +14,8 @@ namespace ate
                 if (args.Length == 0 || args[0] == "-h")
                 {
                     Console.WriteLine("ate -i ImportType ImportParameters -e ExportType Export Parameters");
+                    Console.WriteLine("ate -p Project");
+                    Console.WriteLine("ate -i ImportType ImportParameters -t Template");
                     return;
                 }
                 else if (args[0] == "-v")
@@ -36,27 +38,39 @@ namespace ate
                     var ImportParameters = new List<string>();
 
                     var index = 2;
-                    while (args[index] != "-e" && index < args.Length)
+                    while (args[index] != "-e" && args[index] != "-t" && index < args.Length)
                     {
                         ImportParameters.Add(args[index]);
                         index += 1;
                     }
+                    var output = args[index];
                     index += 1;
 
-                    string ExportType = args[index];
-                    var ExportParameters = new List<string>();
-
-                    for (var i = index + 1; i < args.Length; i++)
+                    if (output == "-e")
                     {
-                        ExportParameters.Add(args[i]);
-                    }
+                        string ExportType = args[index];
+                        var ExportParameters = new List<string>();
 
-                    ate.Conversion.Converter.Convert<ate.Definitions.App>(ImportType, ImportParameters.ToArray(), ExportType, ExportParameters.ToArray());
+                        for (var i = index + 1; i < args.Length; i++)
+                        {
+                            ExportParameters.Add(args[i]);
+                        }
+
+                        ate.Conversion.Converter.Convert<ate.Definitions.App>(ImportType, ImportParameters.ToArray(), ExportType, ExportParameters.ToArray());
+                    }
+                    else if (output == "-t")
+                    {
+                        throw new NotImplementedException();
+                    }
                 }
-                else if (args[0] == "-t")
+                else if (args[0] == "-p")
                 {
                     //Pass arguments to templating engine
                     ate.Projects.Project.Build(args[1]);
+                }
+                else
+                {
+                    throw new NotImplementedException();
                 }
 
             }

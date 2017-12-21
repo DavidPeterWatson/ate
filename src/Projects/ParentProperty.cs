@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+
 namespace ate.Projects
 {
     public partial class Property : ate.Definitions.Property
@@ -50,6 +53,10 @@ namespace ate.Projects
                 Name = Prefix + Parent.Name;
             }
 
+            if ((ForeignKeyName ?? "") != "")
+            {
+                ForeignKey = Entity.Properties.FirstOrDefault(findProperty => findProperty.Name == ForeignKeyName);
+            }
 
             if (ForeignKey == null)
             {
@@ -65,14 +72,6 @@ namespace ate.Projects
 
             }
 
-            // foreach (var ForeignKey in ForeignKeys)
-            // {
-            //     var ResolvedReference = ForeignKey.ResolveReference();
-            //     if (ResolvedReference != ForeignKey)
-            //     {
-            //         ForeignKeys.Replace(ForeignKey, ResolvedReference);
-            //     }
-            // }
         }
 
     }

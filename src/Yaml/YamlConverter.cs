@@ -1,12 +1,13 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 
-using ate.Conversion;
 using YamlDotNet.Serialization;
-using System.IO;
 
-namespace of.Yaml
+using ate.Conversion;
+
+namespace ate.Yaml
 {
     public class YamlConverter : IConverter
     {

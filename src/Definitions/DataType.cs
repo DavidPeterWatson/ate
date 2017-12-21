@@ -21,7 +21,10 @@ namespace ate.Definitions
         String = 1,
         Guid = 2,
         Password = 3,
-        Integer = 10,
+        Byte = 10,
+        ShortInteger = 11,
+        Integer = 12,
+        LongInteger = 13,
         Number = 20,
         Percentage = 21,
         Currency = 30,
@@ -44,7 +47,7 @@ namespace ate.Definitions
         Weeks = 86,
         Months = 87,
         Years = 88,
-        
+
 
 
     }

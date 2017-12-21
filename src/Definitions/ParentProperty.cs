@@ -16,8 +16,9 @@ namespace ate.Definitions
         /// <returns></returns>
         public string Prefix { get; set; }
 
+        // public List<Property> ForeignKeys { get; set; }
 
-
+        public string ForeignKeyName { get; set; }
 
 
     }

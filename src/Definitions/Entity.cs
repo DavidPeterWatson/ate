@@ -50,9 +50,9 @@ namespace ate.Definitions
 
         public virtual List<PropertyGroup> PropertyGroups { get; set; } = new List<PropertyGroup>();
 
-        public List<Property> NameProperties { get; set; } = new List<Property>();
+        public List<Property> NameProperties { get; set; }
 
-        public List<Command> Commands { get; set; } = new List<Command>();
+        public List<Command> Commands { get; set; } 
 
 
 

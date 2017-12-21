@@ -108,11 +108,13 @@ namespace ate.Projects
         public void Build()
         {
 
+            //ToDo check for foreign keys
             foreach (var Property in Properties)
             {
                 Property.PropertyGroup = this;
                 Property.Build();
             }
+
 
         }
 

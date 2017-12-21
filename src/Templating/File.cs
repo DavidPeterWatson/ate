@@ -10,8 +10,11 @@ namespace ate.Templating
     internal class File
     {
 
+
         public const string TemplateFileExtension = ".ate";
-        public static List<string> AutoTemplateExtensions = new List<string> { ".cs", ".sln", ".csproj", ".html", ".js", ".ts", ".json", ".cshtml", ".wsd", ".puml" };
+
+        //ToDo Move this to a config file in a project folder
+        public static List<string> AutoTemplateExtensions = new List<string> { ".cs", ".sln", ".csproj", ".html", ".js", ".ts", ".json", ".cshtml", ".wsd", ".puml", ".project", ".java" };
 
         internal static void Compile(CompileContext CompileContext, FileInfo FileInfo)
         {

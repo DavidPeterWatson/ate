@@ -20,6 +20,7 @@ namespace ate.Templating
 
         public Type Type { get; set; }
 
+        //ToDo Move this to a config file in a project folder
         internal static Dictionary<string, string> Tags = new Dictionary<string, string> {
                 { "<#", "#>" },
                 { "ʕ", "ʔ" }

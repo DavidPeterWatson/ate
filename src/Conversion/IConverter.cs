@@ -12,8 +12,8 @@ namespace ate.Conversion
     /// </summary>
     public interface IConverter
     {
-        ExportResults<T> Export<T>(T Type, string[] Parameters);
-        ImportResults<T> Import<T>(string[] Parameters);
+        ExportResults<T> Export<T>(T type, string[] parameters);
+        ImportResults<T> Import<T>(string[] parameters);
 
         string Name { get; }
 
