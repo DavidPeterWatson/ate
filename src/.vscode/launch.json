@@ -54,6 +54,21 @@
             "internalConsoleOptions": "openOnSessionStart"
         },
         {
+            "name": ".NET Core Launch (Single Project)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Cli/bin/Debug/netcoreapp2.0/ate.dll",
+            "args": [
+                "-p",
+                "..\\..\\samples\\SingleProject\\TaskPocoProject.yaml"
+            ],
+            "cwd": "${workspaceFolder}/Cli",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
             "name": ".NET Core Launch (SQL Import)",
             "type": "coreclr",
             "request": "launch",

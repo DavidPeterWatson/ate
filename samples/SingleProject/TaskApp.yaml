@@ -1,0 +1,97 @@
+Name: TaskPocoApp
+Guid: ""
+DisplayName: Task Poco Application
+Version: 0.0.1
+Description: Task Application to demonstrate application templating
+Modules:
+- Name: IdentityModule
+  DisplayName: Identity Module
+  Guid: ""
+  Description: "Identity Management"
+  Entities:
+
+  - Name: User
+    Guid: ""
+    IsVisible: true
+    Description: List of Users
+    PropertyGroups:
+    - Name: Keys
+      IsVisible: false
+      Properties:
+      - Name: UserId
+        DataType: Guid
+        IsPrimaryKey: true
+    - Name: Details
+      IsVisible: true
+      Properties:
+      - Name: UserName
+        DataType: String
+        MaxLength: 50
+      - Name: Password
+        DataType: String
+        DataTypeFormat: Password
+      - Name: Status
+        DataType: Enum
+        DataTypeFormat: String
+        Enums:
+        - Name: Active
+          Id: "1"
+        - Name: Not Active
+          Id: "2"
+
+- Name: ExampleModule
+  DisplayName: Example Module
+  Guid: ""
+  Description: "Something"
+  Entities:
+
+  - Name: Task
+    Guid: ""
+    IsVisible: true
+    Description: List of tasks
+    PropertyGroups:
+    - Name: Keys
+      IsVisible: false
+      Properties:
+      - Name: TaskId
+        DataType: Guid
+        IsPrimaryKey: true
+    - Name: Details
+      IsVisible: true
+      Properties:
+      - Name: Name
+        DataType: String
+        MaxLength: 50
+      - Name: DueDate
+        DataType: DateTime
+        DataTypeFormat: MediumDate
+      - Name: Status
+        DataType: Enum
+        DataTypeFormat: String
+        Enums:
+        - Name: NotStarted
+          Id: "1"
+        - Name: Started
+          Id: "2"
+        - Name: Completed
+          Id: "3"
+        - Name: "Cancelled"
+          Id: "4"
+      - Name: User
+        DataType: Parent
+        IsRequired: false
+        ParentName: IdentityModule.User
+
+  - Name: TaskType
+    IsVisible: true
+    Description: List of task types
+    PropertyGroups:
+    - Name: Details
+      IsVisible: true
+      Properties:
+      - Name: Name
+        DataType: String
+        MaxLength: 20
+      - Name: Description
+        DataType: String
+        MaxLength: 500

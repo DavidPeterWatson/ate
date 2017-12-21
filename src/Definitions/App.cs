@@ -19,7 +19,7 @@ namespace ate.Definitions
 
         public List<Feature> Features { get; set; }
         public List<Edition> Editions { get; set; }
-        public virtual List<Module> Modules { get; set; }
+        public List<Module> Modules { get; set; }
 
 
 
