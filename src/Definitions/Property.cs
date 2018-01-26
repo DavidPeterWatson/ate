@@ -25,6 +25,7 @@ namespace ate.Definitions
         public bool Searchable { get; set; }
         public bool IsPrimaryKey { get; set; }
         public bool IsRequired { get; set; }
+        public bool IsIndexed { get; set; }
 
         public Property() : base()
         {

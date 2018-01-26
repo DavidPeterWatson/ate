@@ -18,7 +18,7 @@ hide stereotypes
 
 ' entities
 ʕfor each Entity in App.Entitiesʔ
-Table(ʕEntity_Nameʔ, "ʕEntity.Nameʔ\n(ʕEntity.Descriptionʔ)") {
+Table(ʕEntity.Nameʔ, "ʕEntity.Nameʔ\n(ʕEntity.Descriptionʔ)") {
     ʕfor each Property in Entity.Propertiesʔʕif Property.IsPrimaryKeyʔprimary_key(ʕProperty.Nameʔ>) INTEGER
     ʕelse if Property.DataType == DataType.Stringʔnot_null(ʕProperty.Nameʔ) VARCHAR[ʕProperty.MaxLength.ToString()ʔ]
     ʕelse if Property.DataType == DataType.DateTimeʔʕProperty.Nameʔ DATETIME

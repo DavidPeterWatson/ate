@@ -16,6 +16,7 @@ namespace ate
                     Console.WriteLine("ate -i ImportType ImportParameters -e ExportType Export Parameters");
                     Console.WriteLine("ate -p Project");
                     Console.WriteLine("ate -i ImportType ImportParameters -t Template");
+                    Console.WriteLine("ate -r Directory -s SearchText -n NewText");
                     return;
                 }
                 else if (args[0] == "-v")
@@ -29,6 +30,28 @@ namespace ate
                     {
                         Console.WriteLine(Converter);
                     }
+                    return;
+                }
+                else if (args[0] == "-r")
+                {
+                    string directory = args[1];
+                    string searchText = "";
+                    string newText = "";
+                    for (var index = 2; index < args.Length; index += 2)
+                    {
+                        switch (args[index])
+                        {
+                            case "-s":
+                                searchText = args[index + 1];
+                                break;
+                            case "-n":
+                                newText = args[index + 1];
+                                break;
+                        }
+                    }
+
+                    Replace.Replacer.ReplaceFolder(directory, searchText, newText);
+
                     return;
                 }
                 else if (args[0] == "-i")

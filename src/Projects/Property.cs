@@ -49,6 +49,14 @@ namespace ate.Projects
             }
         }
 
+        public string name
+        {
+            get
+            {
+                return LowerCaseName;
+            }
+        }
+        
         public Entity Entity
         {
             get

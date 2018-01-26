@@ -38,6 +38,15 @@ namespace ate.Projects
                 return Name.ToLower();
             }
         }
+
+        public string name
+        {
+            get
+            {
+                return LowerCaseName;
+            }
+        }
+
         public List<Entity> Entities
         {
             get

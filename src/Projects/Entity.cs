@@ -96,6 +96,14 @@ namespace ate.Projects
             }
         }
 
+        public string name
+        {
+            get
+            {
+                return LowerCaseName;
+            }
+        }
+        
         public List<Property> Properties
         {
             get
