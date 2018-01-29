@@ -57,6 +57,14 @@ namespace ate.Projects
             }
         }
         
+        public string na_me
+        {
+            get
+            {
+                return LowerCaseName.Replace(" ", "_");
+            }
+        }
+
         public Entity Entity
         {
             get

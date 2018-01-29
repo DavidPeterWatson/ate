@@ -73,9 +73,8 @@ namespace ate.Sql
                         module = new Module();
                         module.Name = table.SchemaOwner;
                         module.Entities = new List<Entity>();
+                        app.Modules.Add(module);
                     }
-
-                    app.Modules.Add(module);
 
                     var entity = new Entity();
                     entity.PropertyGroups = new List<PropertyGroup>();

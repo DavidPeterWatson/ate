@@ -47,6 +47,10 @@ namespace ate.Templating
 
                 StaticText = StaticText.Replace("App_FullCodeName", "App.FullCodeName");
                 Code = Code.Replace("_", ".");
+                Code = Code.Replace("ʢ", "(");
+                Code = Code.Replace("ʡ", ")");
+                Code = Code.Replace("ℴ", ".");
+
 
                 if (Code.Length > 9 && Code.Substring(0, 9) == "for each ")
                 {

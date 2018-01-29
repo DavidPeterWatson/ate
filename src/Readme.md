@@ -8,11 +8,11 @@ The purpose of the ate is to be able to template/scaffold an application quickly
 
 ### Definitions
 
-This is a base structure that serves as a go between for importing, exprting and templates. Basically just POCOs. Interface for importing and exporting.
+This is a base structure that serves as a go between for importing, exporting and templates. Basically just POCOs. Interface for importing and exporting.
 
 ### CLI
 
-Command Line Interface application that calls the neccesary libraries for importing application models, exporting application models and applying to templates. Dependency inversion of importers and exporters by examining folder.
+Command Line Interface application that calls the necessary libraries for importing application models, exporting application models and applying to templates. Dependency inversion of importers and exporters by examining folder.
 
 ### YAML
 

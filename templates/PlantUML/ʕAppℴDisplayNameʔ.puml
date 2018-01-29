@@ -1,4 +1,4 @@
-@startuml ʕApp.Nameʔ
+@startuml ʕAppℴNameʔ
 ' uncomment the line below if you're using computer with a retina display
 ' skinparam dpi 300
 !define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
@@ -17,16 +17,21 @@ hide methods
 hide stereotypes
 
 ' entities
-ʕfor each Entity in App.Entitiesʔ
-Table(ʕEntity.Nameʔ, "ʕEntity.Nameʔ\n(ʕEntity.Descriptionʔ)") {
-    ʕfor each Property in Entity.Propertiesʔʕif Property.IsPrimaryKeyʔprimary_key(ʕProperty.Nameʔ>) INTEGER
-    ʕelse if Property.DataType == DataType.Stringʔnot_null(ʕProperty.Nameʔ) VARCHAR[ʕProperty.MaxLength.ToString()ʔ]
-    ʕelse if Property.DataType == DataType.DateTimeʔʕProperty.Nameʔ DATETIME
-    ʕelseʔʕProperty.Nameʔ ʕProperty.DataType.ToString()ʔ
+ʕfor each Entity in AppℴEntitiesʔ
+Table(ʕEntityℴNameʔ, "ʕEntityℴNameʔ\n(ʕEntityℴDescriptionʔ)") {
+    ʕfor each Property in EntityℴPropertiesʔʕif PropertyℴIsPrimaryKeyʔprimary_key(ʕPropertyℴNameʔ>) INTEGER
+    ʕelse if PropertyℴDataType == DataTypeℴStringʔnot_null(ʕPropertyℴNameʔ) VARCHAR[ʕPropertyℴMaxLengthℴToStringʢʡʔ]
+    ʕelse if PropertyℴDataType == DataTypeℴDateTimeʔʕPropertyℴNameʔ DATETIME
+    ʕelseʔʕPropertyℴNameʔ ʕPropertyℴDataTypeℴToStringʢʡʔ
     ʕend ifʔʕnext Propertyʔ
 }
 ʕnext Entityʔ
 
+ʕfor each Entity in AppℴEntitiesʔ
+ʕfor each Property as ParentProperty in EntityℴParentPropertiesʔ
+ʕParentPropertyℴEntityℴNameʔ --> ʕParentPropertyℴParentℴNameʔ
+ʕnext Parentʔ
+ʕnext Entityʔ
 ' ' relationships
 ' ' one-to-one relationship
 ' user -- user_profile : "A user only \nhas one profile"

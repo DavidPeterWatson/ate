@@ -31,6 +31,10 @@ namespace ate.Projects
             if (Parent == null)
             {
                 Parent = FindEntity(ParentName);
+                if(Parent == null)
+                {
+                    throw new Exception("Parent called '" + ParentName + "' for property " + Name + " of " + Entity.Name + " not found");
+                }
                 Parent.FindOrCreateChild(this);
 
             }
