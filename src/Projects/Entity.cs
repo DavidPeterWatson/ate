@@ -103,7 +103,23 @@ namespace ate.Projects
                 return LowerCaseName;
             }
         }
-        
+
+        public string NAME
+        {
+            get
+            {
+                return Name.ToUpper();
+            }
+        }
+
+        public string naMe
+        {
+            get
+            {
+                return Name.ToCamelCase();
+            }
+        }
+
         public List<Property> Properties
         {
             get

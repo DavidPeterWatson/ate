@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using ate.Conversion;
+using ate.Extensions;
 
 namespace ate.Projects
 {
@@ -12,6 +13,23 @@ namespace ate.Projects
         public string Destination { get; set; } = "";
         public App App { get; set; }
         public string FilePath { get; set; }
+
+
+        public string NAME
+        {
+            get
+            {
+                return Name.ToUpper();
+            }
+        }
+
+        public string naMe
+        {
+            get
+            {
+                return Name.ToCamelCase();
+            }
+        }
 
 
         public static Project Open(string fileName)

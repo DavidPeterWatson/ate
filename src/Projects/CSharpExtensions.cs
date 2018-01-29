@@ -3,7 +3,7 @@ using ate.Definitions;
 
 namespace ate.Extensions
 {
-    public static class Extensions
+    public static class CSharpExtensions
     {
 
         public static string CSharp(this DataType DataType)

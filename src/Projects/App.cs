@@ -47,6 +47,22 @@ namespace ate.Projects
             }
         }
 
+        public string NAME
+        {
+            get
+            {
+                return Name.ToUpper();
+            }
+        }
+
+        public string naMe
+        {
+            get
+            {
+                return Name.ToCamelCase();
+            }
+        }
+
         public List<Entity> Entities
         {
             get

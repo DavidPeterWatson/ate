@@ -1,3 +1,5 @@
+using ate.Extensions;
+
 namespace ate.Projects
 {
     public class Command : ate.Definitions.Command
@@ -27,7 +29,23 @@ namespace ate.Projects
                 return LowerCaseName;
             }
         }
-        
+
+        public string NAME
+        {
+            get
+            {
+                return Name.ToUpper();
+            }
+        }
+
+        public string naMe
+        {
+            get
+            {
+                return Name.ToCamelCase();
+            }
+        }
+
         public bool IsLicensed
         {
             get
