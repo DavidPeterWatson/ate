@@ -13,7 +13,15 @@ namespace ate.Templating
 
         public FileInfo SourceFile { get; set; }
         public List<ISegment> Segments { get; set; } = new List<ISegment>();
+        public ISegment ParentSegment { get; set; }
 
+        public string Source
+        {
+            get
+            {
+                return SourceFile.FullName;
+            }
+        }
 
         public void Render(RenderContext RenderContext)
         {
@@ -26,10 +34,12 @@ namespace ate.Templating
             //then if overwrite is true then delete and recreate otherwise leave the existing file
             if (System.IO.File.Exists(FilePath))
             {
-                var FirstLine = System.IO.File.ReadLines(FilePath).FirstOrDefault();
-                if (FirstLine != null && FirstLine.Contains("of-no-overwrite"))
+                foreach (string line in System.IO.File.ReadLines(FilePath).Take(3))
                 {
-                    OverWrite = false;
+                    if (line != null && line.Contains("ʕno overwriteʔ"))
+                    {
+                        OverWrite = false;
+                    }
                 }
 
                 if (OverWrite)

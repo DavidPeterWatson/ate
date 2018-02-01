@@ -3,10 +3,10 @@ using ate.Definitions;
 
 namespace ate.Extensions
 {
-    public static class CSharpExtensions
+    public static class JavascriptExtensions
     {
 
-        public static string CSharp(this Property Property)
+        public static string Javascript(this Property Property)
         {
             switch (Property.DataType)
             {
@@ -14,19 +14,16 @@ namespace ate.Extensions
                     return "";
 
                 case DataType.Boolean:
-                    return "bool";
+                    return "boolean";
 
                 case DataType.Integer:
-                    return "int";
+                    return "number";
 
                 case DataType.Parent:
                     return "object";
 
                 case DataType.Number:
-                    return "decimal";
-
-                case DataType.DateTime:
-                    return "DateTime";
+                    return "number";
 
                 default:
                     return "string";

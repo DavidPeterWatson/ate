@@ -28,13 +28,33 @@ namespace ate.Templating
         public Class Class { get; set; }
         // public Class SubClass { get; set; }
         public string ClassAlias { get; set; }
-
+        public ISegment ParentSegment { get; set; }
         public string StaticText { get; set; }
         public Method Method { get; set; }
         //public string MethodName { get; set; }
         //public string MethodCode { get; set; }
         //        public MethodInfo MethodInfo { get; set; }
 
+        public TextSegment(ISegment parentSegment)
+        {
+            this.ParentSegment = parentSegment;
+        }
+        public string Source
+        {
+            get
+            {
+                var source = "";
+                if (ParentSegment != null)
+                {
+                    source += ParentSegment.Source ;
+                }
+                if(Method?.MethodCode != null)
+                {
+                    source += ", " + Method.MethodCode.Replace("*/", "");
+                }
+                return source;
+            }
+        }
 
         public List<ISegment> Segments { get; set; } = new List<ISegment>();
 

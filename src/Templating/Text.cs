@@ -46,7 +46,7 @@ namespace ate.Templating
                 }
 
                 StaticText = StaticText.Replace("App_FullCodeName", "App.FullCodeName");
-                Code = Code.Replace("_", ".");
+
                 Code = Code.Replace("ʢ", "(");
                 Code = Code.Replace("ʡ", ")");
                 Code = Code.Replace("ℴ", ".");
@@ -89,7 +89,7 @@ namespace ate.Templating
                     ListSegment.Class = CompileContext.Template.FindOrCreateClass(Type);
 
                     //ListSegment.ParentClass.MethodSegments.Add(ListSegment);
-                    ListSegment.Method = ListSegment.ParentClass.FindOrCreateMethod(Code, TopSegment.ClassAlias, typeof(System.Collections.IEnumerable));
+                    ListSegment.Method = ListSegment.ParentClass.FindOrCreateMethod(Code, TopSegment.ClassAlias, typeof(System.Collections.IEnumerable), ListSegment.Source);
                     ListSegment.ClassAlias = Alias;
                     TopSegment.Segments.Add(ListSegment);
                     CompileContext.Stack.Push(ListSegment);
@@ -103,7 +103,7 @@ namespace ate.Templating
                     IfSegment.StaticText = StaticText;
                     Code = Code.Substring(3);
                     IfSegment.Class = TopSegment.Class;
-                    IfSegment.Method = IfSegment.Class.FindOrCreateMethod(Code, TopSegment.ClassAlias, typeof(bool));
+                    IfSegment.Method = IfSegment.Class.FindOrCreateMethod(Code, TopSegment.ClassAlias, typeof(bool), IfSegment.Source);
 
                     TopSegment.Segments.Add(IfSegment);
                     CompileContext.Stack.Push(IfSegment);
@@ -111,7 +111,7 @@ namespace ate.Templating
                 }
                 else if (Code.Length >= 8 && Code.Substring(0, 8) == "else if ")
                 {
-                    var TextSegment = new TextSegment();
+                    var TextSegment = new TextSegment(TopSegment);
                     TextSegment.StaticText = StaticText;
                     TopSegment.Segments.Add(TextSegment);
 
@@ -120,7 +120,7 @@ namespace ate.Templating
                     ElseIfSegment.StaticText = "";
                     Code = Code.Substring(8);
                     ElseIfSegment.Class = TopSegment.Class;
-                    ElseIfSegment.Method = ElseIfSegment.Class.FindOrCreateMethod(Code, TopSegment.ClassAlias, typeof(bool));
+                    ElseIfSegment.Method = ElseIfSegment.Class.FindOrCreateMethod(Code, TopSegment.ClassAlias, typeof(bool), ElseIfSegment.Source);
 
                     //TopSegment.Segments.Add(ElseIfSegment);
                     ((IfSegment)TopSegment).ElseSegment = ElseIfSegment;
@@ -129,12 +129,12 @@ namespace ate.Templating
                 }
                 else if (Code == "else")
                 {
-                    var TextSegment = new TextSegment();
+                    var TextSegment = new TextSegment(TopSegment);
                     TextSegment.StaticText = StaticText;
                     TopSegment.Segments.Add(TextSegment);
 
 
-                    var ElseSegment = new TextSegment();
+                    var ElseSegment = new TextSegment(TopSegment);
 
                     ElseSegment.StaticText = "";
 
@@ -147,6 +147,12 @@ namespace ate.Templating
 
                 }
                 else if (Code.Length >= 9 && Code.Substring(0, 9) == "overwrite")
+                {
+
+                    Code = "";
+
+                }
+                else if (Code.Length >= 6 && Code.Substring(0, 6) == "ignore")
                 {
 
                     Code = "";
@@ -170,7 +176,7 @@ namespace ate.Templating
                         CompileContext.Stack.Pop();
                         //TopSegment = CompileContext.Stack.Peek();
                         //ToDo Check that next type matches current for each 
-                        // if (!ListSegement.GetType().IsAssignableFrom(typeof(ListSegement)))
+                        // if (!ListSegment.GetType().IsAssignableFrom(typeof(ListSegment)))
                         // {
                         //     throw new Exception("for each  doesn't match with code grouping");
                         // }
@@ -189,7 +195,7 @@ namespace ate.Templating
                             TopPeek = CompileContext.Stack.Peek();
                         }
                         //TopSegment = CompileContext.Stack.Peek();
-                        // if (!IfSegement.GetType().IsAssignableFrom(typeof(IfSegment)))
+                        // if (!IfSegment.GetType().IsAssignableFrom(typeof(IfSegment)))
                         // {
                         //     throw new Exception("end if doesn't match with code grouping");
                         // }
@@ -198,7 +204,7 @@ namespace ate.Templating
 
                     }
 
-                    var TextSegment = new TextSegment();
+                    var TextSegment = new TextSegment(TopSegment);
 
                     TextSegment.StaticText = StaticText;
 
@@ -206,7 +212,7 @@ namespace ate.Templating
                     TextSegment.Class = TopSegment.Class;
                     if (Code != "")
                     {
-                        TextSegment.Method = TextSegment.Class.FindOrCreateMethod(Code, TopSegment.ClassAlias, typeof(string));
+                        TextSegment.Method = TextSegment.Class.FindOrCreateMethod(Code, TopSegment.ClassAlias, typeof(string), TextSegment.Source);
                     }
 
                 }

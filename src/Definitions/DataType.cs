@@ -21,11 +21,16 @@ namespace ate.Definitions
         String = 1,
         Guid = 2,
         Password = 3,
+        Char = 4,
+        Json = 5,
+        Xml = 6,
         Byte = 10,
         ShortInteger = 11,
         Integer = 12,
         LongInteger = 13,
-        Number = 20,
+        Number = 20,//Decimal
+        Float = 21,//32 bit
+        Double = 22, //64 bit
         Percentage = 21,
         Currency = 30,
         AccountingCurrency = 31,
@@ -47,8 +52,6 @@ namespace ate.Definitions
         Weeks = 86,
         Months = 87,
         Years = 88,
-
-
 
     }
 }

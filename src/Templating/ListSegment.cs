@@ -10,6 +10,7 @@ namespace ate.Templating
     {
         public string StaticText { get; set; }
         public Method Method { get; set; }
+        public ISegment ParentSegment { get; set; }
 
         // public string MethodName { get; set; }
         // public string MethodCode { get; set; }
@@ -22,6 +23,13 @@ namespace ate.Templating
 
         public List<ISegment> Segments { get; set; } = new List<ISegment>();
 
+        public string Source
+        {
+            get
+            {
+                return StaticText;
+            }
+        }
 
         public void Render(RenderContext RenderContext)
         {

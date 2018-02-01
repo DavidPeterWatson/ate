@@ -25,7 +25,7 @@ namespace ate.Templating
                 {
                     string SubValue = Value.Substring(Value.IndexOf(Pair.Key) + Pair.Key.Length);
 
-                    if (SubValue.Contains(Pair.Value) && Value.IndexOf(Pair.Key) < SubValue.IndexOf(Pair.Value))
+                    if (SubValue.Contains(Pair.Value))// && SubValue.IndexOf(Pair.Key) < SubValue.IndexOf(Pair.Value))
                     {
                         var Test = SubValue.Substring(0, SubValue.IndexOf(Pair.Value));
                         if (Test == Contents)

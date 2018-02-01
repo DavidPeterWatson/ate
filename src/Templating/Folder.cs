@@ -12,10 +12,11 @@ namespace ate.Templating
     {
 
         //Processes Folder name and then sub folders and then sub files
-        internal static void Compile(CompileContext CompileContext, DirectoryInfo DirectoryInfo)
+        internal static FolderSegment Compile(CompileContext CompileContext, DirectoryInfo DirectoryInfo)
         {
 
             var PreviousTopSegment = CompileContext.Stack.Peek();
+            
             Text.Compile(CompileContext, DirectoryInfo.Name);
 
             var FolderSegment = new FolderSegment();
@@ -57,6 +58,7 @@ namespace ate.Templating
                 CompileContext.Stack.Pop();
             }
 
+            return FolderSegment;
         }
 
 

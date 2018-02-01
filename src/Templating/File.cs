@@ -14,7 +14,7 @@ namespace ate.Templating
         public const string TemplateFileExtension = ".ate";
 
         //ToDo Move this to a config file in a project folder
-        public static List<string> AutoTemplateExtensions = new List<string> { ".cs", ".sln", ".csproj", ".html", ".js", ".ts", ".json", ".cshtml", ".wsd", ".puml", ".project", ".java" };
+        public static List<string> AutoTemplateExtensions = new List<string> { ".cs", ".sln", ".csproj", ".html", ".js", ".ts", ".json", ".cshtml", ".wsd", ".puml", ".project", ".java" , ".sql" , ".yaml" };
 
         internal static void Compile(CompileContext CompileContext, FileInfo FileInfo)
         {
@@ -43,7 +43,7 @@ namespace ate.Templating
                 var CodeSegment = CompileContext.Template.FindOrCreateCodeSegment(InjectionName);
                 CodeSegment.Code = FileInfo.ReadAllText();
             }
-            else if (FileName.StartsWithTags(Template.Tags, "ignore"))
+            else if (FileName.ContainsTags(Template.Tags, "ignore"))
             {
                 //Do nothing
             }
@@ -59,7 +59,7 @@ namespace ate.Templating
                 TopSegment.Segments.Add(FileSegment);
                 FileSegment.Class = TopSegment.Class;
 
-                if (FileName.ContainsTags(Template.Tags, "overwrite false"))
+                if (FileName.ContainsTags(Template.Tags, "no overwrite"))
                 {
                     FileSegment.OverWrite = false;
                 }

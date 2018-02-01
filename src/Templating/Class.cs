@@ -17,7 +17,6 @@ namespace ate.Templating
         {
             string Code = "\n    public static class " + BaseType.Name + " \n    {";
 
-
             foreach (var Method in Methods.Values)
             {
                 Code += Method.CompiledCode();
@@ -29,11 +28,12 @@ namespace ate.Templating
         }
 
 
-        public Method FindOrCreateMethod(string MethodCode, string ClassAlias, Type ReturnType)
+        public Method FindOrCreateMethod(string MethodCode, string ClassAlias, Type ReturnType, string Source)
         {
             var Method = Methods.GetOrAdd(MethodCode, MethodFactory);
             Method.ReturnType = ReturnType;
             Method.ClassAlias = ClassAlias;
+            Method.Sources.GetOrAdd(Source, Source);
             return Method;
         }
 

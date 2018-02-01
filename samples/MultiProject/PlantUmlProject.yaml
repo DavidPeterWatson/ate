@@ -1,6 +1,6 @@
 Name: Plant UML Project
 Description: Example Project to demonstrate templating to Plant UML
-Template: ..\..\templates\PlantUML
+Template: ../../templates/PlantUML
 Destination: output
 App:
   FileName: TaskApp.yaml

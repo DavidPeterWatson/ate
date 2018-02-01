@@ -7,7 +7,7 @@ namespace ate.Definitions
 {
     public class App
     {
-        public string DisplayName { get; set; } = "";
+        public string Display { get; set; } = "";
         public string Guid { get; set; } = "";
         public string NamePrefix { get; set; }
         public string Name { get; set; } = "";
@@ -28,13 +28,13 @@ namespace ate.Definitions
 
         }
 
-        public App(string DisplayName, string Guid = "", string Name = "")
+        public App(string Display, string Guid = "", string Name = "")
         {
             if (Guid == "")
             {
                 Guid = System.Guid.NewGuid().ToString();
             }
-            this.DisplayName = DisplayName;
+            this.Display = Display;
             this.Guid = Guid;
             this.Name = Name;
 
@@ -57,7 +57,7 @@ namespace ate.Definitions
             Guid = Guid.ToLower();
             if (Name == null || Name == "")
             {
-                Name = DisplayName.CodeName();
+                Name = Display.CodeName();
             }
             foreach (var Module in Modules ?? Enumerable.Empty<Module>())
             {

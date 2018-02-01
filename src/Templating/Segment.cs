@@ -7,8 +7,17 @@ namespace ate.Templating
     {
         public Class Class { get; set; }
         public string ClassAlias { get; set; }
+        public ISegment ParentSegment { get; set; }
 
         public List<ISegment> Segments { get; set; } = new List<ISegment>();
+
+        public string Source
+        {
+            get
+            {
+                return ClassAlias;
+            }
+        }
 
         public string CompiledCode()
         {

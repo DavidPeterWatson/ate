@@ -1,5 +1,5 @@
 Name: ExampleModule
-DisplayName: Example Module
+Display: Example Module
 Guid: ""
 Description: "Something"
 Entities:

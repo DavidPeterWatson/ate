@@ -10,7 +10,7 @@ namespace ate.Definitions
     public partial class Property
     {
 
-        public string DisplayName { get; set; }
+        public string Display { get; set; }
         public string Guid { get; set; }
         public DataType DataType { get; set; } = DataType.None;
         public DataTypeFormat DataTypeFormat { get; set; } = DataTypeFormat.String;
@@ -46,7 +46,7 @@ namespace ate.Definitions
             if (Name == null || Name == "")
             {
 
-                Name = DisplayName.CodeName();
+                Name = Display.CodeName();
 
             }
 

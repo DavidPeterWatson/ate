@@ -4,6 +4,8 @@ namespace ate.Templating
 {
     public interface ISegment
     {
+
+        ISegment ParentSegment { get; set; }
         List<ISegment> Segments { get; set; }
 
         //string CompiledCode();
@@ -13,6 +15,8 @@ namespace ate.Templating
         Class Class { get; set; }
         //Method Method { get; set; }
         string ClassAlias { get; set; }
+
+        string Source { get; }
 
     }
 

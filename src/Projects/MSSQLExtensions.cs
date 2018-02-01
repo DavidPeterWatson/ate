@@ -3,10 +3,10 @@ using ate.Definitions;
 
 namespace ate.Extensions
 {
-    public static class CSharpExtensions
+    public static class MSSQLExtensions
     {
 
-        public static string CSharp(this Property Property)
+        public static string MSSQL(this Property Property)
         {
             switch (Property.DataType)
             {
@@ -14,23 +14,24 @@ namespace ate.Extensions
                     return "";
 
                 case DataType.Boolean:
-                    return "bool";
+                    return "bit";
 
                 case DataType.Integer:
                     return "int";
 
                 case DataType.Parent:
-                    return "object";
+                    return "";
 
                 case DataType.Number:
                     return "decimal";
 
-                case DataType.DateTime:
-                    return "DateTime";
+                case DataType.String:
+                    return "varchar(" + Property.MaxLength + ")";
 
                 default:
-                    return "string";
+                    return "varchar";
             }
+
         }
 
     }

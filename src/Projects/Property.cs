@@ -32,12 +32,12 @@ namespace ate.Projects
             {
                 Guid = System.Guid.NewGuid().ToString();
             }
-            this.DisplayName = DisplayName;
+            this.Display = DisplayName;
             this.Guid = Guid;
             this.DataType = DataType;
             this.DataTypeFormat = DataTypeFormat;
 
-            this.Name = this.DisplayName.CodeName();
+            this.Name = this.Display.CodeName();
 
         }
 

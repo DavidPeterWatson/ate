@@ -1,5 +1,5 @@
 Name: IdentityModule
-DisplayName: Identity Module
+Display: Identity Module
 Guid: ""
 Description: "Identity Management"
 Entities:

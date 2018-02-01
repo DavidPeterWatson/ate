@@ -10,7 +10,7 @@ namespace ate.Definitions
     public class Module
     {
         public string FileName { get; set; }
-        public string DisplayName { get; set; }
+        public string Display { get; set; }
         public string Guid { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -25,17 +25,17 @@ namespace ate.Definitions
 
         }
 
-        public Module(string DisplayName, string Guid)
+        public Module(string Display, string Guid)
         {
             if (Guid == "")
             {
                 Guid = System.Guid.NewGuid().ToString();
             }
-            this.DisplayName = DisplayName;
+            this.Display = Display;
             this.Guid = Guid;
         }
 
-        public Module(string DisplayName, string Guid, string Name = "") : this(DisplayName, Guid)
+        public Module(string Display, string Guid, string Name = "") : this(Display, Guid)
         {
 
             this.Name = Name;
@@ -43,10 +43,10 @@ namespace ate.Definitions
         }
 
 
-        public Entity AddObject(string SingularDisplayName, string Guid = "")
+        public Entity AddObject(string SingularDisplay, string Guid = "")
         {
 
-            var Object = new Entity(SingularDisplayName, Guid, this);
+            var Object = new Entity(SingularDisplay, Guid, this);
             Entities.Add(Object);
             return Object;
 
@@ -63,7 +63,7 @@ namespace ate.Definitions
             if (Name == null || Name == "")
             {
 
-                Name = DisplayName.CodeName();
+                Name = Display.CodeName();
 
             }
 

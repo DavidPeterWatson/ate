@@ -1,6 +1,6 @@
 Name: ExampleApp
 Guid: ""
-DisplayName: Example Application
+Display: Example Application
 Version: 0.0.1
 Description: Task Application to demonstrate application templating
 Modules:

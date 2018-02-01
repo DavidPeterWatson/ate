@@ -62,7 +62,9 @@ namespace ate.Templating
             //if, however, it is a folder then compile the folder and file names
             if (Directory.Exists(Source))
             {
-                Folder.Compile(CompileContext, new DirectoryInfo(Source));
+                var FolderSegment = Folder.Compile(CompileContext, new DirectoryInfo(Source));
+                FolderSegment.IsTopLevel = true;
+                FolderSegment.OverWrite = false;
             }
             else if (System.IO.File.Exists(Source))
             {
@@ -73,7 +75,7 @@ namespace ate.Templating
                 Text.Compile(CompileContext, Source);
             }
 
-            string TemplateCode = "using System;\nusing System.Linq;\nusing System.Collections;\nusing ate.Extensions;\nusing ate.Projects;\nusing ate.Definitions;\n\n namespace N" + Guid.NewGuid().ToString().CodeName() + " { ";
+            string TemplateCode = "//ʕignoreʔ\nusing System;\nusing System.Linq;\nusing System.Collections;\nusing ate.Extensions;\nusing ate.Projects;\nusing ate.Definitions;\n\n namespace N" + Guid.NewGuid().ToString().CodeName() + " { ";
 
             List<SyntaxTree> SyntaxTrees = new List<SyntaxTree>();
 
@@ -89,7 +91,10 @@ namespace ate.Templating
 
             TemplateCode += "\n}";
 
-            var assemblyName = "A" + Guid.NewGuid().ToString().CodeName();
+            var assemblyName = ".ate-code ʕignoreʔ";
+
+            System.IO.File.WriteAllText(Path.Combine(Source, assemblyName + ".cs"), TemplateCode);
+
             SyntaxTrees.Add(CSharpSyntaxTree.ParseText(TemplateCode));
 
             List<MetadataReference> References = new List<MetadataReference>();

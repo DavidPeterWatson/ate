@@ -48,9 +48,9 @@ namespace ate.Projects
                 PluralName = Prefix + Child.Plural;
             }
 
-            if (DisplayName == null || DisplayName == "")
+            if (Display == null || Display == "")
             {
-                DisplayName = (Prefix + " " + Parent.Display).Trim();
+                Display = (Prefix + " " + Parent.Display).Trim();
             }
             if (Name == null || Name == "")
             {
@@ -64,7 +64,7 @@ namespace ate.Projects
 
             if (ForeignKey == null)
             {
-                ForeignKey = new Property(Prefix + " " + Parent.Display + " " + Parent.PrimaryKey.DisplayName, null, Parent.PrimaryKey.DataType, Parent.PrimaryKey.DataTypeFormat);
+                ForeignKey = new Property(Prefix + " " + Parent.Display + " " + Parent.PrimaryKey.Display, null, Parent.PrimaryKey.DataType, Parent.PrimaryKey.DataTypeFormat);
 
                 ForeignKey.Name = Prefix + Parent.Name + Parent.PrimaryKey.Name;
 

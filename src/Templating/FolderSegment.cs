@@ -13,9 +13,19 @@ namespace ate.Templating
         public Class Class { get; set; }
         public string ClassAlias { get; set; }
         public bool OverWrite { get; set; } = true;
+        public bool IsTopLevel { get; set; } = false;
+        public ISegment ParentSegment { get; set; }
 
         public DirectoryInfo SourceDirectory { get; set; }
         public List<ISegment> Segments { get; set; } = new List<ISegment>();
+
+        public string Source
+        {
+            get
+            {
+                return SourceDirectory.FullName;
+            }
+        }
 
 
         /// <summary>
@@ -29,7 +39,15 @@ namespace ate.Templating
             var PreviousRenderObject = RenderContext.CurrentObject;
             var PreviousDirectory = RenderContext.CurrentDirectory;
 
-            var NewDirectory = Path.Combine(RenderContext.CurrentDirectory, RenderContext.CurrentText);
+            string NewDirectory;
+            if (IsTopLevel)
+            {
+                NewDirectory = RenderContext.CurrentDirectory;
+            }
+            else
+            {
+                NewDirectory = Path.Combine(RenderContext.CurrentDirectory, RenderContext.CurrentText);
+            }
 
             DirectoryInfo DirectoryInfo;
 
