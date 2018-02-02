@@ -14,7 +14,7 @@ namespace ate.Templating
         public const string TemplateFileExtension = ".ate";
 
         //ToDo Move this to a config file in a project folder
-        public static List<string> AutoTemplateExtensions = new List<string> { ".cs", ".sln", ".csproj", ".html", ".js", ".ts", ".json", ".cshtml", ".wsd", ".puml", ".project", ".java" , ".sql" , ".yaml" };
+        public static List<string> AutoTemplateExtensions = new List<string> { ".cs", ".sln", ".csproj", ".html", ".js", ".ts", ".json", ".cshtml", ".wsd", ".puml", ".project", ".java" , ".sql" , ".yaml", ".xml", ".yml", ".md", ".txt", ".name" };
 
         internal static void Compile(CompileContext CompileContext, FileInfo FileInfo)
         {

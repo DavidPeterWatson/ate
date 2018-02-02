@@ -14,6 +14,7 @@ namespace ate.Definitions
         public string Guid { get; set; }
         public DataType DataType { get; set; } = DataType.None;
         public DataTypeFormat DataTypeFormat { get; set; } = DataTypeFormat.String;
+        public int MinLength { get; set; } = 0;
         public int MaxLength { get; set; }
         public bool IsSequence { get; set; } = false;
         public bool IsVisible { get; set; } = true;

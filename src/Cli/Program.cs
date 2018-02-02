@@ -13,10 +13,28 @@ namespace ate
 
                 if (args.Length == 0 || args[0] == "-h")
                 {
-                    Console.WriteLine("ate -i ImportType ImportParameters -e ExportType Export Parameters");
-                    Console.WriteLine("ate -p Project");
-                    Console.WriteLine("ate -i ImportType ImportParameters -t Template");
-                    Console.WriteLine("ate -r Directory -s SearchText -n NewText");
+                    Console.WriteLine(@"
+                    ate version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+                    Console.WriteLine(@"
+parameters:
+
+-h this help info
+-v version
+-l list available import and export types
+-i import
+-e export
+-p render project
+-r replace text in folder and file names (for template building)
+-s search text
+-n new text
+
+usage:
+
+ate -i ImportType ImportParameters -e ExportType Export Parameters
+ate -p Project.yaml
+ate -r Directory -s SearchText -n NewText"
+);
+
                     return;
                 }
                 else if (args[0] == "-v")
