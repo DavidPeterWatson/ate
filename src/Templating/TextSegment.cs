@@ -50,7 +50,7 @@ namespace ate.Templating
                 }
                 if(Method?.MethodCode != null)
                 {
-                    source += ", " + Method.MethodCode.Replace("*/", "");
+                    source += " " + Method.MethodCode.Replace("*/", "");
                 }
                 return source;
             }

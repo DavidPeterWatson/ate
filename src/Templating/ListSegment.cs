@@ -27,7 +27,16 @@ namespace ate.Templating
         {
             get
             {
-                return StaticText;
+                var source = "";
+                if (ParentSegment != null)
+                {
+                    source += ParentSegment.Source;
+                }
+                if (Method?.MethodCode != null)
+                {
+                    source += " " + Method.MethodCode.Replace("*/", "");
+                }
+                return source;
             }
         }
 

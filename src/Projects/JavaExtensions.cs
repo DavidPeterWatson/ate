@@ -24,18 +24,18 @@ namespace ate.Extensions
                     switch (Property.DataTypeFormat)
                     {
                         case DataTypeFormat.Byte:
-                            return "byte";
+                            return "Byte";
 
                         case DataTypeFormat.ShortInteger:
-                            return "short";
+                            return "Short";
 
                         case DataTypeFormat.Integer:
-                            return "int";
+                            return "Integer";
 
                         case DataTypeFormat.LongInteger:
-                            return "long";
+                            return "Long";
                     }
-                    return "int";
+                    return "Integer";
 
                 case DataType.Number:
                     switch (Property.DataTypeFormat)
