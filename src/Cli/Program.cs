@@ -14,8 +14,8 @@ namespace ate
                 if (args.Length == 0 || args[0] == "-h")
                 {
                     Console.WriteLine(@"
-                    ate version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
-                    Console.WriteLine(@"
+ate version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()) + @"
+
 parameters:
 
 -h this help info

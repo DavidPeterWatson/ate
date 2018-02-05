@@ -30,7 +30,28 @@ namespace ate.Projects
                 return Name.ToCamelCase();
             }
         }
+        public string name
+        {
+            get
+            {
+                return Name.ToLower();
+            }
+        }
+        public string na_me
+        {
+            get
+            {
+                return Name.ToUnderscoreCase();
+            }
+        }
 
+        public string hyphenname
+        {
+            get
+            {
+                return Name.ToHyphenCase();
+            }
+        }
 
         public static Project Open(string fileName)
         {

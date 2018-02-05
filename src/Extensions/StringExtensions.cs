@@ -1,25 +1,48 @@
+using System.Linq;
+
 namespace ate.Extensions
 {
     public static class StringExtensions
     {
 
-        public static string ToCamelCase(this string Value)
+        public static string ToCamelCase(this string input)
         {
-            var Result = "";
-            var RemainingString = Value;
+            var result = "";
+            var remainingString = input;
 
-            while (RemainingString.Length > 1 && RemainingString[0].IsUpper() && RemainingString[1].IsUpper())
+            while (remainingString.Length > 1 && remainingString[0].IsUpper() && remainingString[1].IsUpper())
             {
-                Result += RemainingString[0].ToLower();
-                RemainingString = RemainingString.Substring(1);
+                result += remainingString[0].ToLower();
+                remainingString = remainingString.Substring(1);
             }
-            if (Result == "")
+            if (result == "")
             {
-                Result += RemainingString[0].ToLower();
-                RemainingString = RemainingString.Substring(1);
+                result += remainingString[0].ToLower();
+                remainingString = remainingString.Substring(1);
             }
-            Result += RemainingString;
-            return Result;
+            result += remainingString;
+            return result;
+        }
+
+
+        public static string ToPascalCase(this string input)
+        {
+            var result = input.ToCamelCase();
+
+            return result[0].ToLower() + result.Substring(1);
+        }
+
+
+        public static string ToHyphenCase(this string input)
+        {
+            string result = string.Concat(input.Select((x, j) => j > 0 && char.IsUpper(x) ? "-" + x.ToString() : x.ToString()));
+            return result.ToLower();
+        }
+
+        public static string ToUnderscoreCase(this string input)
+        {
+            string result = string.Concat(input.Select((x, j) => j > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString()));
+            return result.ToLower();
         }
 
         public static bool IsUpper(this char Char)

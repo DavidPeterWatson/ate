@@ -88,19 +88,26 @@ namespace ate.Projects
             }
         }
 
-        public string LowerCaseName
+        public string name
         {
             get
             {
                 return Name.ToLower();
             }
         }
-
-        public string name
+        public string na_me
         {
             get
             {
-                return LowerCaseName;
+                return Name.ToUnderscoreCase();
+            }
+        }
+
+        public string hyphenname
+        {
+            get
+            {
+                return Name.ToHyphenCase();
             }
         }
 
