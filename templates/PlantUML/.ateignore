@@ -1,0 +1,9 @@
+### These files and folders will not be included in the generated output
+
+# temporary ate code files
+*.atecode.*
+*.ateignore
+*.atecompile
+
+### Git Files
+.git/

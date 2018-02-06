@@ -1,6 +1,3 @@
 ### The contents of these files will be analysed for templating code
 
-*.cs
-*.java
-*.txt
-Dockerfile
+*.puml
