@@ -11,29 +11,15 @@ namespace ate.Templating
     {
 
 
-        public const string TemplateFileExtension = ".ate";
+        //public const string TemplateFileExtension = ".ate";
 
         //ToDo Move this to a config file in a project folder
-        public static List<string> AutoTemplateExtensions = new List<string> { ".cs", ".sln", ".csproj", ".html", ".js", ".ts", ".json", ".cshtml", ".wsd", ".puml", ".project", ".java" , ".sql" , ".yaml", ".xml", ".yml", ".md", ".txt", ".name" };
+        //public static List<string> AutoTemplateExtensions = new List<string> { "*.cs", "*.sln", "*.csproj", "*.html", "*.js", "*.ts", "*.json", "*.cshtml", "*.wsd", "*.puml", "*.project", "*.java" , "*.sql" , "*.yaml", "*.xml", "*.yml", "*.md", "*.txt", "*.name"};
 
         internal static void Compile(CompileContext CompileContext, FileInfo FileInfo)
         {
 
-            string SecondExtension = Path.GetExtension(Path.GetFileNameWithoutExtension(FileInfo.Name));
-
-            string FileName;
-            if (FileInfo.Extension == TemplateFileExtension)
-            {
-                FileName = Path.GetFileNameWithoutExtension(FileInfo.Name);
-            }
-            else if (SecondExtension == TemplateFileExtension)
-            {
-                FileName = Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(FileInfo.Name)) + Path.GetExtension(FileInfo.Name);
-            }
-            else
-            {
-                FileName = FileInfo.Name;
-            }
+            var FileName = FileInfo.Name;
 
 
             if (FileName.StartsWithTags(Template.Tags, "inject ", out var Tag))
@@ -68,13 +54,10 @@ namespace ate.Templating
                     FileSegment.OverWrite = true;
                 }
 
-                if (FileInfo.Name.EndsWith(TemplateFileExtension) || SecondExtension == TemplateFileExtension || AutoTemplateExtensions.Contains(FileInfo.Extension))
+                if (FileInfo.Name.FitsMasks(CompileContext.Template.CompileMasks.ToList()))
                 {
-
                     CompileContext.Stack.Push(FileSegment);
                     Text.Compile(CompileContext, System.IO.File.ReadAllText(FileInfo.FullName));
-
-
                 }
 
                 while (CompileContext.Stack.Peek() != PreviousTopSegment)

@@ -37,6 +37,7 @@ namespace ate.Templating
         public ConcurrentDictionary<string, CodeSegment> CodeSegments = new ConcurrentDictionary<string, CodeSegment>();
 
         public ConcurrentBag<String> IgnoreMasks = new ConcurrentBag<String>();
+        public ConcurrentBag<String> CompileMasks = new ConcurrentBag<String>();
 
         public static Template Compile(string Source, Type Type)
         {
@@ -46,6 +47,37 @@ namespace ate.Templating
             Template.Compile(Source);
 
             return Template;
+        }
+
+
+        private void ReadIgnoreFile(DirectoryInfo directoryInfo)
+        {
+            //Check for ate ignore file
+            foreach (var ChildFile in directoryInfo.GetFiles("*.ateignore"))
+            {
+                foreach (var line in System.IO.File.ReadLines(ChildFile.FullName))
+                {
+                    if (!line.StartsWith("#") && line != "")
+                    {
+                        this.IgnoreMasks.Add(line);
+                    }
+                }
+            }
+        }
+
+        private void ReadCompileFile(DirectoryInfo directoryInfo)
+        {
+            //Check for ate ignore file
+            foreach (var ChildFile in directoryInfo.GetFiles("*.atecompile"))
+            {
+                foreach (var line in System.IO.File.ReadLines(ChildFile.FullName))
+                {
+                    if (!line.StartsWith("#") && line != "")
+                    {
+                        this.CompileMasks.Add(line);
+                    }
+                }
+            }
         }
 
         private void Compile(string Source)
@@ -64,7 +96,10 @@ namespace ate.Templating
             //if, however, it is a folder then compile the folder and file names
             if (Directory.Exists(Source))
             {
-                var FolderSegment = Folder.Compile(CompileContext, new DirectoryInfo(Source));
+                var DirectoryInfo = new DirectoryInfo(Source);
+                ReadIgnoreFile(DirectoryInfo);
+                ReadCompileFile(DirectoryInfo);
+                var FolderSegment = Folder.Compile(CompileContext, DirectoryInfo);
                 FolderSegment.IsTopLevel = true;
                 FolderSegment.OverWrite = false;
             }

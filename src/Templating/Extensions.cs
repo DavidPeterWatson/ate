@@ -140,5 +140,19 @@ namespace ate.Templating
             Regex mask = new Regex(fileMask.Replace(".", "[.]").Replace("*", ".*").Replace("?", "."));
             return mask.IsMatch(fileName);
         }
+
+
+        public static bool FitsMasks(this string fileName, List<string> fileMasks)
+        {
+            foreach (var fileMask in fileMasks)
+            {
+                Regex mask = new Regex(fileMask.Replace(".", "[.]").Replace("*", ".*").Replace("?", "."));
+                if (mask.IsMatch(fileName))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

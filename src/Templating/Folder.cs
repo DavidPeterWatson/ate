@@ -40,17 +40,7 @@ namespace ate.Templating
 
             CompileContext.Stack.Push(FolderSegment);
 
-//Check for ate ignore file
-            foreach (var ChildFile in DirectoryInfo.GetFiles("*.ateignore"))
-            {
-                foreach (var line in System.IO.File.ReadLines(ChildFile.FullName))
-                {
-                    if (!line.StartsWith("#") && line != "")
-                    {
-                        CompileContext.Template.IgnoreMasks.Add(line);
-                    }
-                }
-            }
+
 
             //var DirectoryInfo = new DirectoryInfo(Source);
             foreach (var ChildDirectory in DirectoryInfo.GetDirectories())

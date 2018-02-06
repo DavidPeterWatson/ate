@@ -3,6 +3,7 @@
 # temporary ate code files
 *.atecode.*
 *.ateignore
+*.atecompile
 
 ### Git Files
 .git/

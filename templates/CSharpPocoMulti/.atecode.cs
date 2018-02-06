@@ -5,32 +5,32 @@ using ate.Extensions;
 using ate.Projects;
 using ate.Definitions;
 
- namespace Nf74f4e2a80574996925c7583c7ea1ab2 { 
+ namespace N41013f2fdabc40ad988957169e7bdb6a { 
     public static class Entity 
     {
 
-/**/
+/*/home/david/Documents/repos/ate/templates/CSharpPocoMulti/ʕAppℴDisplayʔ Models/ʕfor each Entity in AppℴEntitiesʔʕEntityℴNameʔ.cs*/
 
-        public static IEnumerable Mbba6f90633bb46bb9cbd3f23223d879d(this ate.Projects.Entity Entity)
+        public static String M1b45c294ae284441b804f3e933af1bdb(this ate.Projects.Entity Entity)
         {
-            return ((Func<IEnumerable>)(() => Entity.Properties))();
+            return ((Func<String>)(() => Entity.App.FullName))();
         }
 
 
 /*/home/david/Documents/repos/ate/templates/CSharpPocoMulti/ʕAppℴDisplayʔ Models/ʕfor each Entity in AppℴEntitiesʔʕEntityℴNameʔ.cs*/
 /* App.Entities*/
 
-        public static String M06b1076d9c9b4e31bd928a17458df255(this ate.Projects.Entity Entity)
+        public static String M9a21d4e8807f4ff3b39678978571edcc(this ate.Projects.Entity Entity)
         {
             return ((Func<String>)(() => Entity.Name))();
         }
 
 
-/*/home/david/Documents/repos/ate/templates/CSharpPocoMulti/ʕAppℴDisplayʔ Models/ʕfor each Entity in AppℴEntitiesʔʕEntityℴNameʔ.cs*/
+/**/
 
-        public static String Mf8ace5757d514b3db86127a508841396(this ate.Projects.Entity Entity)
+        public static IEnumerable Me301b331bd2b4322b58d7e7ef459b320(this ate.Projects.Entity Entity)
         {
-            return ((Func<String>)(() => Entity.App.FullName))();
+            return ((Func<IEnumerable>)(() => Entity.Properties))();
         }
 
     }
@@ -38,10 +38,10 @@ using ate.Definitions;
     public static class App 
     {
 
-/*/home/david/Documents/repos/ate/templates/CSharpPocoMulti/test.txt*/
 /*/home/david/Documents/repos/ate/templates/CSharpPocoMulti*/
+/*/home/david/Documents/repos/ate/templates/CSharpPocoMulti/test.txt*/
 
-        public static String Mf71277812bb6486f935eaffc51e0ae75(this ate.Projects.App App)
+        public static String M1d5c952ed0c848c98e551ff1218e4c70(this ate.Projects.App App)
         {
             return ((Func<String>)(() => App.Display))();
         }
@@ -49,7 +49,7 @@ using ate.Definitions;
 
 /**/
 
-        public static IEnumerable M0f89b229e17242f090ca8e13cf63f474(this ate.Projects.App App)
+        public static IEnumerable M887536c6350c48769493fac859b02269(this ate.Projects.App App)
         {
             return ((Func<IEnumerable>)(() => App.Entities))();
         }
@@ -61,17 +61,17 @@ using ate.Definitions;
 
 /* Entity.Properties*/
 
-        public static String Mf6933d3bd6fd4aa9bf570ac00a2df993(this ate.Projects.Property Property)
+        public static String M4d1f0a3750ba4c47b62da5b7793afc50(this ate.Projects.Property Property)
         {
-            return ((Func<String>)(() => Property.Name))();
+            return ((Func<String>)(() => Property.CSharp()))();
         }
 
 
 /* Entity.Properties*/
 
-        public static String Ma6cde6c932544da1a8b159248eea7d80(this ate.Projects.Property Property)
+        public static String Ma055b6d31f924d85b79ae75bef73b337(this ate.Projects.Property Property)
         {
-            return ((Func<String>)(() => Property.CSharp()))();
+            return ((Func<String>)(() => Property.Name))();
         }
 
     }
