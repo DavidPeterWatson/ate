@@ -22,7 +22,6 @@ namespace ate.Templating
 
         //public ISegment TopSegment { get; set; }
 
-
     }
 
 }

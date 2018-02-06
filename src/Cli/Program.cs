@@ -14,7 +14,7 @@ namespace ate
                 if (args.Length == 0 || args[0] == "-h")
                 {
                     Console.WriteLine(@"
-ate version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()) + @"
+ate version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString() + @"
 
 parameters:
 
@@ -32,8 +32,7 @@ usage:
 
 ate -i ImportType ImportParameters -e ExportType Export Parameters
 ate -p Project.yaml
-ate -r Directory -s SearchText -n NewText"
-);
+ate -r Directory -s SearchText -n NewText");
 
                     return;
                 }

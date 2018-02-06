@@ -1,0 +1,11 @@
+### These files and folders will not be included in the generated output
+
+# temporary ate code files
+*.atecode.*
+*.ateignore
+
+### Git Files
+.git/
+
+# Maven temporary build folders
+**/target/

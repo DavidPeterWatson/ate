@@ -40,17 +40,51 @@ namespace ate.Templating
 
             CompileContext.Stack.Push(FolderSegment);
 
-
+//Check for ate ignore file
+            foreach (var ChildFile in DirectoryInfo.GetFiles("*.ateignore"))
+            {
+                foreach (var line in System.IO.File.ReadLines(ChildFile.FullName))
+                {
+                    if (!line.StartsWith("#") && line != "")
+                    {
+                        CompileContext.Template.IgnoreMasks.Add(line);
+                    }
+                }
+            }
 
             //var DirectoryInfo = new DirectoryInfo(Source);
             foreach (var ChildDirectory in DirectoryInfo.GetDirectories())
             {
-                Compile(CompileContext, ChildDirectory);
+                bool ignoreDirectory = false;
+                foreach (var ignoreMask in CompileContext.Template.IgnoreMasks)
+                {
+                    if ((ChildDirectory.FullName + "/").FitsMask(ignoreMask))
+                    {
+                        ignoreDirectory = true;
+                        break;
+                    }
+                }
+                if (!ignoreDirectory)
+                {
+                    Compile(CompileContext, ChildDirectory);
+                }
             }
 
             foreach (var ChildFile in DirectoryInfo.GetFiles())
             {
-                File.Compile(CompileContext, ChildFile);
+                bool ignoreFile = false;
+                foreach (var ignoreMask in CompileContext.Template.IgnoreMasks)
+                {
+                    if (ChildFile.FullName.FitsMask(ignoreMask))
+                    {
+                        ignoreFile = true;
+                        break;
+                    }
+                }
+                if (!ignoreFile)
+                {
+                    File.Compile(CompileContext, ChildFile);
+                }
             }
 
             while (CompileContext.Stack.Peek() != PreviousTopSegment)

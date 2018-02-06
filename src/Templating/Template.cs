@@ -36,6 +36,8 @@ namespace ate.Templating
 
         public ConcurrentDictionary<string, CodeSegment> CodeSegments = new ConcurrentDictionary<string, CodeSegment>();
 
+        public ConcurrentBag<String> IgnoreMasks = new ConcurrentBag<String>();
+
         public static Template Compile(string Source, Type Type)
         {
 
@@ -75,7 +77,7 @@ namespace ate.Templating
                 Text.Compile(CompileContext, Source);
             }
 
-            string TemplateCode = "//ʕignoreʔ\nusing System;\nusing System.Linq;\nusing System.Collections;\nusing ate.Extensions;\nusing ate.Projects;\nusing ate.Definitions;\n\n namespace N" + Guid.NewGuid().ToString().CodeName() + " { ";
+            string TemplateCode = "using System;\nusing System.Linq;\nusing System.Collections;\nusing ate.Extensions;\nusing ate.Projects;\nusing ate.Definitions;\n\n namespace N" + Guid.NewGuid().ToString().CodeName() + " { ";
 
             List<SyntaxTree> SyntaxTrees = new List<SyntaxTree>();
 
@@ -91,7 +93,7 @@ namespace ate.Templating
 
             TemplateCode += "\n}";
 
-            var assemblyName = ".ate-code ʕignoreʔ";
+            var assemblyName = ".atecode";
 
             System.IO.File.WriteAllText(Path.Combine(Source, assemblyName + ".cs"), TemplateCode);
 

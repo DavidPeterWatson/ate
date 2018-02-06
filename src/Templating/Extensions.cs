@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace ate.Templating
 {
@@ -132,6 +133,12 @@ namespace ate.Templating
                 Console.WriteLine(Contents);
                 throw Exception;
             }
+        }
+
+        public static bool FitsMask(this string fileName, string fileMask)
+        {
+            Regex mask = new Regex(fileMask.Replace(".", "[.]").Replace("*", ".*").Replace("?", "."));
+            return mask.IsMatch(fileName);
         }
     }
 }
