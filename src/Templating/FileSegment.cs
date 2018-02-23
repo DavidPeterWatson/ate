@@ -34,15 +34,17 @@ namespace ate.Templating
             //then if overwrite is true then delete and recreate otherwise leave the existing file
             if (System.IO.File.Exists(FilePath))
             {
+                bool OverWriteThisFile = true;
+
                 foreach (string line in System.IO.File.ReadLines(FilePath).Take(3))
                 {
                     if (line != null && line.Contains("ʕno overwriteʔ"))
                     {
-                        OverWrite = false;
+                        OverWriteThisFile = false;
                     }
                 }
 
-                if (OverWrite)
+                if (OverWrite && OverWriteThisFile)
                 {
                     System.IO.File.Delete(FilePath);
                 }
