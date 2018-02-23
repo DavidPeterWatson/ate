@@ -16,7 +16,7 @@ namespace ate.Templating
         {
 
             var PreviousTopSegment = CompileContext.Stack.Peek();
-            
+
             Text.Compile(CompileContext, DirectoryInfo.Name);
 
             var FolderSegment = new FolderSegment();
@@ -46,9 +46,10 @@ namespace ate.Templating
             foreach (var ChildDirectory in DirectoryInfo.GetDirectories())
             {
                 bool ignoreDirectory = false;
+                string fullname = ChildDirectory.FullName.Replace("\\", "/");
                 foreach (var ignoreMask in CompileContext.Template.IgnoreMasks)
                 {
-                    if ((ChildDirectory.FullName + "/").FitsMask(ignoreMask))
+                    if ((fullname + "/").FitsMask(ignoreMask))
                     {
                         ignoreDirectory = true;
                         break;
@@ -63,9 +64,10 @@ namespace ate.Templating
             foreach (var ChildFile in DirectoryInfo.GetFiles())
             {
                 bool ignoreFile = false;
+                string fullname = ChildFile.FullName.Replace("\\", "/");
                 foreach (var ignoreMask in CompileContext.Template.IgnoreMasks)
                 {
-                    if (ChildFile.FullName.FitsMask(ignoreMask))
+                    if (fullname.FitsMask(ignoreMask))
                     {
                         ignoreFile = true;
                         break;

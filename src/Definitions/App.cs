@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using ate.Extensions;
 using System.Linq;
+using System.Dynamic;
 
 namespace ate.Definitions
 {
-    public class App
+    public class App : DynamicObject
     {
         public string Display { get; set; } = "";
         public string Guid { get; set; } = "";
@@ -16,6 +17,11 @@ namespace ate.Definitions
         public string Description { get; set; }
         public string Company { get; set; }
 
+        //TODO replace ports with dynamic properties
+        public string ServicePort { get; set; }
+        public string ZuulPort { get; set; }
+        public string DebugPort { get; set; }
+        public string DatabasePort { get; set; }
 
         public List<Feature> Features { get; set; }
         public List<Edition> Editions { get; set; }
@@ -76,9 +82,15 @@ namespace ate.Definitions
 
 
 
+        public override bool TryGetMember(GetMemberBinder binder, out object result)
+        {
+            return base.TryGetMember(binder, out result);
+        }
 
-
-
+        public override bool TrySetMember(SetMemberBinder binder, object value)
+        {
+            return base.TrySetMember(binder, value);
+        }
         // public Feature FindFeature(FeatureReference FeatureReference)
         // {
 
@@ -91,6 +103,8 @@ namespace ate.Definitions
         //     return FeatureQuery.FirstOrDefault();
 
         // }
+
+
 
     }
 

@@ -127,6 +127,48 @@ namespace ate.Projects
             }
         }
 
+
+
+        public string plural
+        {
+            get
+            {
+                return Plural.ToLower();
+            }
+        }
+
+        public string plu_ral
+        {
+            get
+            {
+                return Plural.ToUnderscoreCase();
+            }
+        }
+
+        public string hyphenplural
+        {
+            get
+            {
+                return Plural.ToHyphenCase();
+            }
+        }
+
+        public string PLURAL
+        {
+            get
+            {
+                return Plural.ToUpper();
+            }
+        }
+
+        public string pluRal
+        {
+            get
+            {
+                return Plural.ToCamelCase();
+            }
+        }
+
         public List<Property> Properties
         {
             get
