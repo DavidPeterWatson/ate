@@ -38,13 +38,21 @@ The projects library takes the settings in a project.yaml file and applies the a
 
 ## Getting Started
 
-The Cli Project contins the primary application project which can be compiled. Save to an appropriate location and add that location to your path to use ate.
+[Install ate](https://github.com/DavidPeterWatson/ate/tree/master/installation)
 
+parameters:
+
+-h this help info
 -v version
 -l list available import and export types
 -i import
+-e export
 -p render project
 -r replace text in folder and file names (for template building)
+-s search text
+-n new text
+
+usage:
 
 ate -i ImportType ImportParameters -e ExportType Export Parameters
 ate -p Project.yaml
