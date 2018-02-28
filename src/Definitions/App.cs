@@ -17,11 +17,14 @@ namespace ate.Definitions
         public string Description { get; set; }
         public string Company { get; set; }
 
-        //TODO replace ports with dynamic properties
+        //TODO replace ports and IP with dynamic properties
         public string ServicePort { get; set; }
         public string ZuulPort { get; set; }
         public string DebugPort { get; set; }
         public string DatabasePort { get; set; }
+        public string ServiceIPRange { get; set; }
+        public string ZuulIPRange { get; set; }
+        public string DatabaseIPRange { get; set; }
 
         public List<Feature> Features { get; set; }
         public List<Edition> Editions { get; set; }

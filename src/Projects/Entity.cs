@@ -231,6 +231,18 @@ namespace ate.Projects
             }
         }
 
+        public List<Property> NonParentProperties
+        {
+            get
+            {
+                var Query =
+                    from FindProperty in Properties
+                    where FindProperty.DataType != DataType.Parent
+                    select FindProperty;
+                return Query.ToList();
+            }
+        }
+
         public List<PropertyGroup> VisiblePropertyGroups
         {
             get

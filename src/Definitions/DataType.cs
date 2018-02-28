@@ -28,7 +28,7 @@ namespace ate.Definitions
         ShortInteger = 11,
         Integer = 12,
         LongInteger = 13,
-        Number = 20,//Decimal
+        Decimal = 20,//Decimal
         Float = 21,//32 bit
         Double = 22, //64 bit
         Percentage = 21,
