@@ -9,9 +9,7 @@ https://www.microsoft.com/net/download/windows/run
 https://www.microsoft.com/net/download/linux/run
 
 
-2. Copy files from the appropriate zip package in [this folder](https://github.com/DavidPeterWatson/ate/tree/master/installation) to an applicable folder on your machine.
-
-eg: C:\Program Files\ate
+2. Copy files from the appropriate zip package in [this folder](https://github.com/DavidPeterWatson/ate/tree/master/installation) to an applicable folder on your machine. (eg: C:\Program Files\ate)
 
 Then add that folder to your Path environment variable.
 
