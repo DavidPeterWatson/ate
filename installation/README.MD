@@ -3,7 +3,9 @@
 1. Install .NET Core Runtime. Note: Not ASP.net Core. 
 
 https://www.microsoft.com/net/download/macos/run
+
 https://www.microsoft.com/net/download/windows/run
+
 https://www.microsoft.com/net/download/linux/run
 
 
