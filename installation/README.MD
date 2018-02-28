@@ -13,7 +13,7 @@ https://www.microsoft.com/net/download/linux/run
 
 Then add that folder to your Path environment variable.
 
-you should be able to run `ate` from the command line. It should look like the following:
+you should be able to run `ate -h` from the command line. It should look like the following:
 
 ```
 ate version 1.0.47.0
