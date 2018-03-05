@@ -76,9 +76,12 @@ namespace ate.Projects
             get
             {
                 var Entities = new List<Entity>();
-                foreach (var Module in Modules)
+                if (Modules != null)
                 {
-                    Entities.AddRange(Module.Entities);
+                    foreach (var Module in Modules)
+                    {
+                        Entities.AddRange(Module.Entities);
+                    }
                 }
                 return Entities;
             }
@@ -145,22 +148,25 @@ namespace ate.Projects
         public void Import(ate.Definitions.App sourceApp)
         {
             this.Map(sourceApp);
-
-            foreach (var sourceModule in sourceApp.Modules)
+            if (sourceApp.Modules != null)
             {
-                if (Modules == null) { Modules = new List<Module>(); }
-                Modules.Add(new Module(sourceModule));
+                foreach (var sourceModule in sourceApp.Modules)
+                {
+                    if (Modules == null) { Modules = new List<Module>(); }
+                    Modules.Add(new Module(sourceModule));
+                }
             }
         }
 
         private void PostBuild()
         {
-
-            foreach (var Module in Modules)
+            if (Modules != null)
             {
-                Module.PostBuild();
+                foreach (var Module in Modules)
+                {
+                    Module.PostBuild();
+                }
             }
-
         }
 
         public Feature FindFeature(string FeatureName)
