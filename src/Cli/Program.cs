@@ -43,9 +43,9 @@ ate -r Directory -s SearchText -n NewText");
                 }
                 else if (args[0] == "-l")
                 {
-                    foreach (var Converter in ate.Conversion.Converter.Converters)
+                    foreach (var Converter in ate.Conversion.Converter.Converters.Values)
                     {
-                        Console.WriteLine(Converter);
+                        Console.WriteLine(Converter.Name);
                     }
                     return;
                 }

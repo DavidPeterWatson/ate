@@ -3,4 +3,5 @@
 *.cs
 *.java
 *.txt
+*.md
 Dockerfile

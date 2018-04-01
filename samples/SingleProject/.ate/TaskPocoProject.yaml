@@ -1,6 +1,6 @@
 Name: TaskPocoProject
 Description: Example Project to demonstrate templating
-Template: ..\..\templates\CSharpPocoSingle
-Destination: output
+Template: ../../../templates/CSharpPocoSingle
+Destination: ../
 App:
   FileName: TaskApp.yaml

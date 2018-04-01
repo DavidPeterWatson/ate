@@ -9,6 +9,7 @@ namespace ate.Extensions
         public static bool IsInstanceOf(this object obj, Type type)
         {
             return obj != null && type != null && type.GetTypeInfo().IsAssignableFrom(obj.GetType().GetTypeInfo());
+            //return obj != null && type != null && type.IsAssignableFrom(obj.GetType());
         }
 
 
