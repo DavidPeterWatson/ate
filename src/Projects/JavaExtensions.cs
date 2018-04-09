@@ -49,7 +49,7 @@ namespace ate.Extensions
                     return "double";
 
                 case DataType.DateTime:
-                    return "DateTime";
+                    return "Date";
 
                 case DataType.String:
 
