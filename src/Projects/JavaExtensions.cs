@@ -14,7 +14,7 @@ namespace ate.Extensions
                     return "void";
 
                 case DataType.Boolean:
-                    return "boolean";
+                    return "Boolean";
 
                 case DataType.Parent:
                     return "Object";
